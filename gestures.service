@@ -1,0 +1,15 @@
+[Unit]
+Description=This unit will run gesture controller (apds9960)
+After=network.target
+Wants=network-online.target
+
+[Service]
+Restart=always
+Type=simple
+User=root
+Group=root
+RestartSec=30s
+ExecStart=python3 /usr/bin/gestures.py
+
+[Install]
+WantedBy=multi-user.target
