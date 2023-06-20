@@ -1,0 +1,2 @@
+apds9960 @ git+https://github.com/liske/python-apds9960.git
+keyboard==0.13.5
