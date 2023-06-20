@@ -4,6 +4,8 @@ import smbus
 import keyboard
 from time import sleep
 
+log = open('/var/log/gesture.txt')
+
 port = 1
 bus = smbus.SMBus(port)
 
@@ -15,8 +17,8 @@ try:
     apds.setGestureGain(APDS9960_GGAIN_2X)
     apds.enableGestureSensor()
     
-    print("Gestures")
-    print("============")
+    print("Gesture Service Started", file=log)
+    print("============", file=log)
     
     apds.enableGestureSensor()
     while True:
@@ -24,7 +26,7 @@ try:
         if apds.isGestureAvailable():
             motion = apds.readGesture()
             
-            print("Gesture={}".format(motion))
+            print("Gesture={}".format(motion), file=log)
             
             if motion == APDS9960_DIR_LEFT:
                 keyboard.press_and_release('v')
