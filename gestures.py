@@ -4,7 +4,7 @@ import smbus
 import keyboard
 from time import sleep
 
-log = open('/var/log/gesture.txt')
+log = open('/var/log/gesture.txt', 'w+')
 
 port = 1
 bus = smbus.SMBus(port)
