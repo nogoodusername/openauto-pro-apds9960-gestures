@@ -11,10 +11,6 @@ apds = APDS9960(bus)
 
 try:
     
-    apds.setProximityIntLowThreshold(0)
-    apds.setProximityIntHighThreshold(200)
-    apds.setGestureEnterThresh(0)
-    apds.setGestureExitThresh(200)
     apds.setGestureLEDDrive(APDS9960_LED_DRIVE_50MA)
     apds.setGestureGain(APDS9960_GGAIN_2X)
     apds.enableGestureSensor()
@@ -34,7 +30,7 @@ try:
                 keyboard.press_and_release('v')
             elif motion == APDS9960_DIR_RIGHT:
                 keyboard.press_and_release('n')
-            elif motion == APDS9960_DIR_NEAR:
+            elif motion == APDS9960_DIR_UP:
                 keyboard.press_and_release('b')
 
 finally:
